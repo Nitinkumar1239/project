@@ -1,0 +1,15 @@
+# /opt/dockerfile
+## vi Dockerfile
+
+FROM ubuntu18.04
+MAINTAINER "nitinr1810@gmail.com"
+RUN mkdir/opt/tomcat
+RUN curl https://www.apache.org/tomcat/bin/apachetomcat9.0.tar.gz
+RUN tar apache*.tar.gz
+RUN mv apache-tomcat-9.0/* /opt/tomcat/ .
+RUN yum -y install java
+RUN java -version
+WORKDIR /opt/tomcat/webapps
+RUN curl -O -L https://github.com/Nitinkumar1239/project/project.war
+EXPOSE 8080
+CMD ["/opt/tomcat/bin/ctalina.sh", "run"]
